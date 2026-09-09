@@ -20,7 +20,7 @@ Apoi deschide <http://localhost:8765/>. Nu există build, backend sau chei API.
 | `#/activ/<slug>` | Fișă generică pentru activele fără fotografie (hartă în loc de galerie) |
 | `#/calendar`, `#/cum-participi` | Pagini editoriale |
 
-**Live:** <https://cara9876.github.io/app-proprietati-publice/> (GitHub Pages, din ramura `main`; orice `git push` republică). Documentele interne APP sunt excluse prin `.gitignore` și apar pe host ca „Data room · la cerere”; local se deschid normal.
+**Live:** <https://cara9876.github.io/app-proprietati-publice/> (GitHub Pages, din ramura `main`; orice `git push` republică). Toate fișierele locale sunt publicate, inclusiv documentele APP (decizie Leo, 10 sept 2026). Ca să le ascunzi pe host, pune `PUBLIC_HOST = true` în `js/app.js` și adaugă-le în `.gitignore`.
 
 ## Structură
 

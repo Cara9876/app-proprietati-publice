@@ -6,7 +6,8 @@
 
   const STYLE_URL = 'https://tiles.openfreemap.org/styles/positron';
   // Pe hostingul public, documentele interne APP nu se servesc: apar ca disponibile în data room.
-  const PUBLIC_HOST = /github\.io$|pages\.dev$|netlify\.app$/.test(location.hostname);
+  // Setează pe true dacă documentele interne nu trebuie servite de pe hosting (apar ca „Data room · la cerere”).
+  const PUBLIC_HOST = false;
   const app = document.getElementById('app');
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));

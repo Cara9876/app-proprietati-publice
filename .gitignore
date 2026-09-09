@@ -1,9 +1,1 @@
-# macheta veche, doar pentru comparație locală
-_old/
-# documente interne APP: nu se publică pe hostingul public (în pagină apar ca „data room”)
-assets/docs/ordin-app-208-2026-06-11.pdf
-assets/docs/nota-informativa-zarea.pdf
-assets/docs/extras-raport-evaluare-zarea.pdf
-assets/docs/pv-2-comisie-2026-06-04.pdf
-assets/docs/raport-evaluare-complet-2026-05-27.pdf
 .DS_Store
