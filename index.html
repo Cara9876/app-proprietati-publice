@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proprietăți publice · Agenția Proprietății Publice</title>
+<meta name="description" content="Catalogul activelor publice oferite mediului privat: privatizare, vânzare, locațiune și concesiune. Hartă, fișe, documente și termene.">
+<link rel="icon" href="vendor/mud/logos/gov.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.6.0/maplibre-gl.min.css" integrity="sha384-GriUtmHM/C5kppqM+je9BCInk5YLY4k8/MEXQNSB9gE0BLi6af+iFZlypsIX+LE6" crossorigin="anonymous">
+<link rel="stylesheet" href="vendor/mud/fonts.css">
+<link rel="stylesheet" href="vendor/mud/main.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<!-- Banda guvernamentală MUD (markup din elements/header.html al design-system-ului) -->
+<div class="pre-header">
+  <div class="pre-header__content ap-container">
+    <div class="pre-header__logo">
+      <a href="https://gov.md" target="_blank" rel="noreferrer">
+        <img src="vendor/mud/logos/government-logo.png" alt="">
+        <span>Guvernul Republicii Moldova</span>
+      </a>
+    </div>
+    <div class="pre-header__right ap-prehead-right">
+      <span class="ap-prehead-note">Serviciu public · date verificate <time datetime="2026-09-09">9 sept 2026</time></span>
+    </div>
+  </div>
+</div>
+
+<header class="ap-header" id="top">
+  <div class="ap-container ap-header__in">
+    <a class="ap-brand" href="#/" aria-label="APP · Proprietăți publice, acasă">
+      <span class="ap-brand__text"><b>Proprietăți publice</b><small>Agenția Proprietății Publice</small></span>
+    </a>
+    <nav class="ap-nav" aria-label="Navigare principală">
+      <a class="ap-nav__link" href="#/cauta" data-nav="cauta">Caută proprietăți</a>
+      <a class="ap-nav__link" href="#/cum-participi" data-nav="cum-participi">Cum participi</a>
+      <a class="ap-nav__link" href="#/calendar" data-nav="calendar">Calendar licitații</a>
+      <a class="ap-nav__link" href="https://app.gov.md" target="_blank" rel="noreferrer">Despre APP</a>
+    </nav>
+    <div class="ap-header__right">
+      <div class="ap-lang" role="group" aria-label="Limbă">
+        <button class="ap-lang__btn is-on" type="button" aria-pressed="true">RO</button>
+        <button class="ap-lang__btn" type="button" aria-pressed="false">RU</button>
+        <button class="ap-lang__btn" type="button" aria-pressed="false">EN</button>
+      </div>
+      <button class="ap-burger" type="button" aria-label="Meniu" aria-expanded="false" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="app" class="ap-main" tabindex="-1"></main>
+
+<footer class="ap-footer">
+  <div class="ap-container ap-footer__in">
+    <div class="ap-footer__brand">
+      <div>
+        <b>Agenția Proprietății Publice</b>
+        <p>Piața Marii Adunări Naționale 1, Chișinău, MD-2033<br>Program: luni–vineri, 08:00–17:00</p>
+      </div>
+    </div>
+    <div class="ap-footer__cols">
+      <div>
+        <h4>Proprietăți</h4>
+        <a href="#/cauta">Toate proprietățile</a>
+        <a href="#/cauta?tranzactie=licitatie">Licitații cu strigare</a>
+        <a href="#/cauta?tranzactie=concurs">Concursuri investiționale</a>
+        <a href="#/cauta?tranzactie=locatiune">Locațiune și concesiune</a>
+      </div>
+      <div>
+        <h4>Participare</h4>
+        <a href="#/cum-participi">Cum participi</a>
+        <a href="#/calendar">Calendar licitații</a>
+        <a href="#/cum-participi">Întrebări frecvente</a>
+        <a href="https://app.gov.md/privatizare/" target="_blank" rel="noreferrer">Rezultate și arhivă</a>
+      </div>
+      <div>
+        <h4>Date deschise</h4>
+        <a href="https://app.gov.md/privatizare/" target="_blank" rel="noreferrer">Sursa: app.gov.md</a>
+        <a href="data/properties.json">Setul de date (JSON)</a>
+        <a href="#/cum-participi">Metodologie și disclaimere</a>
+      </div>
+    </div>
+  </div>
+  <div class="ap-footer__legal">
+    <div class="ap-container">
+      <p>Informațiile de pe această platformă au rol informativ. Documentul oficial al fiecărei proceduri prevalează. Echivalentele valutare sunt orientative, la cursul BNM din data indicată. Harta, distanțele și contururile sunt orientative; datele cadastrale oficiale prevalează.</p>
+      <p class="ap-footer__meta">Machetă de concept · construită pe Modelul Unitar de Design (HG 677/2025) · hartă © <a href="https://openfreemap.org" target="_blank" rel="noreferrer">OpenFreeMap</a>, © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.6.0/maplibre-gl.min.js" integrity="sha384-/fkW0eF+JadmqTh/3DP/LoBDPsacir3SNbnZ8aD7sozuTkUVhgCNHPSBfJura3aL" crossorigin="anonymous"></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
