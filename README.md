@@ -20,7 +20,7 @@ Apoi deschide <http://localhost:8765/>. Nu există build, backend sau chei API.
 | `#/activ/<slug>` | Fișă generică pentru activele fără fotografie (hartă în loc de galerie) |
 | `#/calendar`, `#/cum-participi` | Pagini editoriale |
 
-Pentru a-l arăta cuiva din afara rețelei: e un folder static — merge pe Cloudflare Pages / GitHub Pages / orice hosting.
+**Live:** <https://cara9876.github.io/app-proprietati-publice/> (GitHub Pages, din ramura `main`; orice `git push` republică). Documentele interne APP sunt excluse prin `.gitignore` și apar pe host ca „Data room · la cerere”; local se deschid normal.
 
 ## Structură
 
