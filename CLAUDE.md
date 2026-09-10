@@ -27,7 +27,7 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
 
 1. **Lagmar register, civic content.** Bold grotesk (Onest 800 uppercase hero, 700 headings), big photographs,
    plain large numbers. Palette: paper white, civic off-white `#F4F5F2`, graphite `#1B2125`, the red of the
-   existing sign `#C8292F` as the only accent. No gold, no serif, no cards, no gradients except photo shades.
+   existing sign `#C8292F` as the only accent. No gold, no serif, no gradients except photo shades; cards only where Lagmar has them (the three directions).
    Like Lagmar, the page alternates: white sections, two dark graphite "breaks" (compare, visit), one off-white
    section (operating figures) and one **deep navy** section (`#0F1E3A`, the transaction). Leo asked for the breaks
    and for a third colour explicitly. The three directions are **Lagmar-style cards** (rounded 18 px, image with title
@@ -51,7 +51,8 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
 5. **Hero must be dark.** The building is ugly up close; the boss liked the old hero because the photo was subdued.
    Keep the strong shade + desaturation on the hero image so the white type reads and the facade recedes.
 6. PDFs are linked as files. Never embed them.
-7. Not published. Leo decides when and where (GitHub Pages is the obvious route).
+7. **Published** on GitHub Pages since 10 Sep 2026 (see top). Every push to `main` goes live within a minute; verify
+   on the live URL with `tools/shoot.js` after pushing. Old catalogue stays reachable at `/catalog/`.
 
 ## Known gotchas
 
