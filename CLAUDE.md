@@ -71,8 +71,9 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
 
 ## Feedback round from Regina Mogorean (10 Sep 2026), all applied
 - Numerals were too thin → serif numerals at weight 600, optical size 16 (`--serif-num`); titles 500 / opsz 20.
-- The shelter (IGSU) and Premier Energy conditions are stated **before the price**, in "Attached to the sale"
-  right after the operations section; the terms box links up to them.
+- The shelter (IGSU) and Premier Energy conditions are stated **before the price**, as one centred statement
+  ("Two things stay as they are") at the end of the operations section: serif line, two paragraphs, one small gold
+  mark between them. Leo rejected a numbered split layout there as "too many lines"; keep it rule-free.
 - Her English copy replaced ours in: property, compare, directions lead, location, operations, documents, hero lead
   ("right in the heart of Chișinău").
 - A room must be visible → the old prospect's room photograph (`src-room.webp`, 576×768) sits under the figures

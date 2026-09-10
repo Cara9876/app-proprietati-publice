@@ -166,13 +166,14 @@ section[id] { scroll-margin-top: 72px; }
 .today__item picture { display: block; position: relative; overflow: hidden; background: var(--civic); }
 .today__item img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.82); transition: transform 1.2s cubic-bezier(.2, .6, .2, 1); }
 .today__item:hover img { transform: scale(1.03); }
-.today__item--room { grid-column: 1 / 5; grid-row: 1 / 3; }
+.today__item--room { grid-column: 1 / 6; grid-row: 1 / 3; }
 .today__item--room picture { height: 100%; }
-.today__item--entrance { grid-column: 5 / 13; grid-row: 1; }
+.today__item--entrance { grid-column: 6 / 13; grid-row: 1; }
 .today__item--entrance picture { aspect-ratio: 16 / 9; }
-.today__item--tower { grid-column: 5 / 9; grid-row: 2; }
-.today__item--winter { grid-column: 9 / 13; grid-row: 2; }
+.today__item--tower { grid-column: 6 / 10; grid-row: 2; }
+.today__item--winter { grid-column: 10 / 13; grid-row: 2; }
 .today__item--tower picture, .today__item--winter picture { aspect-ratio: 4 / 3; }
+.today__item--winter picture { aspect-ratio: 3 / 3.2; }
 .today__item--tower img { object-position: 50% 20%; }
 .today figcaption { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; }
 .today figcaption .eyebrow { display: block; margin-bottom: 4px; color: var(--gold); }
