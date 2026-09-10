@@ -11,7 +11,7 @@ const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));
  ws.addEventListener('message',m=>{const d=JSON.parse(m.data); if(d.id&&pending[d.id]){pending[d.id](d);delete pending[d.id];}});
  const send=(method,params)=>new Promise(r=>{const i=++id;pending[i]=r;ws.send(JSON.stringify({id:i,method,params:params||{}}));});
  await send('Emulation.setDeviceMetricsOverride',{width:+w,height:+h,deviceScaleFactor:1,mobile:+w<600});
- await send('Page.enable'); await send('Page.navigate',{url}); await sleep(2500);
+ await send('Network.enable'); await send('Network.setCacheDisabled',{cacheDisabled:true}); await send('Page.enable'); await send('Page.navigate',{url}); await sleep(2500);
  // scroll through the page so lazy images and the map initialise, then return to the top
  await send('Runtime.evaluate',{expression:'(async()=>{const H=document.body.scrollHeight;for(let y=0;y<H;y+=600){window.scrollTo(0,y);await new Promise(r=>setTimeout(r,120));}window.scrollTo(0,H);for(let k=0;k<50&&![...document.images].every(i=>i.complete);k++)await new Promise(r=>setTimeout(r,200));window.scrollTo(0,0);})()',awaitPromise:true});
  await sleep(+wait);
