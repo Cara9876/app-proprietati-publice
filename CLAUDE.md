@@ -25,17 +25,19 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
 
 ## Design rules (agreed with Leo, 10 Sep 2026)
 
-1. **Lagmar register, civic content.** Bold grotesk (Onest 800 uppercase hero, 700 headings), big photographs,
-   plain large numbers. Palette: paper white, civic off-white `#F4F5F2`, graphite `#1B2125`, the red of the
-   existing sign `#C8292F` as the only accent. No gold, no serif, no gradients except photo shades; cards only where Lagmar has them (the three directions).
-   Like Lagmar, the page alternates: white sections, two dark graphite "breaks" (compare, visit), one off-white
-   section (operating figures) and one **deep navy** section (`#0F1E3A`, the transaction). Leo asked for the breaks
-   and for a third colour explicitly. The three directions are **Lagmar-style cards** (rounded 18 px, image with title
-   overlay, stats row, floor-allocation bar, Keeps/Needs) because Leo asked for "these cards" from lagmar.md.
-   Motion: the hero is a slow loop of the four renders (8 s each, 1.8 s cross-fade, Ken Burns drift alternating
-   direction, starts 2.6 s after load, pauses when hidden or scrolled away) as the stand-in for Lagmar's video;
-   fixed header that floats transparent over the hero and turns solid after 40 px, a 3 px red scroll-progress
-   line at the very top, staggered hero entrance, sliding nav underline. All gated by prefers-reduced-motion.
+1. **Four Seasons register (since 10 Sep 2026, v2).** Leo's boss found fourseasons.com/residences "sexy"; Whiteley
+   and Sobha were the other references. The skin: ivory `#F7F5F0` ground, warm charcoal `#1E1C19`, champagne
+   `#B9A176` for hairlines, the monogram and small marks only (never gold text or gold buttons); **Bodoni Moda**
+   (Google Fonts, latin-ext) for the hero title in tracked capitals, section titles, big numbers and document
+   titles; **Onest** for body and for the tracked 11 px small capitals used on nav, buttons, labels, eyebrows.
+   Rectangular buttons, no pills, no rounded corners, no shadows except under the slider frame. Section eyebrows
+   with champagne hairlines, centred on single-column sections. Red and navy are gone. No countdown anywhere.
+   Page rhythm: ivory, dark charcoal break (compare), ivory, ivory + map, deeper ivory (operations), warm charcoal
+   (the sale) with the terms on ivory, ivory (documents), dark (viewings), ivory footer with a champagne rule.
+   The Lagmar-style v1 is preserved at tag `zarea-v1-lagmar`.
+   Motion (unchanged): the hero is a slow loop of the four renders opening on the dusk render (8 s each, 2 s
+   cross-fade, Ken Burns alternating), fixed header transparent over the hero then ivory after 40 px, a 2 px
+   champagne scroll-progress line, staggered hero entrance, hairline nav underline. All gated by reduced-motion.
 2. **No invented facts.** Every figure comes from `assets/docs/` or app.gov.md; `data/site.json` carries `verifiedAt`.
    Time-sensitive items (price, deadline, auction) are rendered from the data file, never hard-coded twice.
 3. **Concept images must be labelled** "Architectural concept. Not an approved project." Leo delivered four renders on
@@ -48,8 +50,8 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
    **baked outlines in `data/landmarks.geojson`**, fetched once from OpenStreetMap on 10 Sep 2026. No live Overpass
    call at runtime (it hung for Leo). The camera fits those buildings with bearing 205 so the hotel sits low in the
    frame and the government quarter is "up". Investors care about institutions, not ASEM or the Pushkin museum.
-5. **Hero must be dark.** The building is ugly up close; the boss liked the old hero because the photo was subdued.
-   Keep the strong shade + desaturation on the hero image so the white type reads and the facade recedes.
+5. **Hero must be dark.** The boss liked the old hero because the photo was subdued. Keep the strong left and bottom
+   shade + desaturation so the white serif reads and the facade recedes.
 6. PDFs are linked as files. Never embed them.
 7. **Published** on GitHub Pages since 10 Sep 2026 (see top). Every push to `main` goes live within a minute; verify
    on the live URL with `tools/shoot.js` after pushing. Old catalogue stays reachable at `/catalog/`.
@@ -64,5 +66,5 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
   `.section.operating` etc., or the rule silently wins. `.compare-section` is a dark break and keeps full padding.
 - Contacts (two phones, two emails) are verified against the Official Gazette notice p. 2 (`comunicat-mo-261-264`).
 - The hero headline has `ready <br>for`; the break is hidden below 600 px, so the space before it matters.
-- The floor-use stacks in "Three credible directions" are rendered from `data-stack="office:4,hotel:8"` (ground floor first).
+- The floor-use stacks in "Three directions" are rendered from `data-stack="office:4,hotel:8"` (ground floor first).
 - The compare slider clips the "after" side with `clip-path`; anything inside it is clipped too.

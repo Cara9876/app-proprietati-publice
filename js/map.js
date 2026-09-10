@@ -4,8 +4,8 @@
 (function () {
   'use strict';
   const STYLE_URL = 'https://tiles.openfreemap.org/styles/positron';
-  const ASSET = '#C8292F';
-  const CATS = { state: ['State institutions', '#1D4ED8'], finance: ['Finance', '#0F766E'], landmark: ['Landmarks', '#7C3AED'] };
+  const ASSET = '#B9A176';
+  const CATS = { state: ['State institutions', '#4A5A7A'], finance: ['Finance', '#5E7A6A'], landmark: ['Landmarks', '#8A7AA0'] };
   const h = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const dist = (m) => (m < 950 ? Math.round(m / 10) * 10 + ' m' : (m / 1000).toFixed(1) + ' km');
 
@@ -27,7 +27,7 @@
       const empty = { type: 'FeatureCollection', features: [] };
       if (bl) map.addLayer({ id: 'z-3d', type: 'fill-extrusion', source: bl.source, 'source-layer': bl['source-layer'], minzoom: 13, paint: { 'fill-extrusion-color': ['interpolate', ['linear'], H, 4, '#eef1f5', 14, '#dde4ec', 30, '#c5cfda', 60, '#a9b6c5'], 'fill-extrusion-height': H, 'fill-extrusion-base': BASE, 'fill-extrusion-opacity': 0.55 } }, before);
       map.addSource('z-hover', { type: 'geojson', data: empty });
-      map.addLayer({ id: 'z-3d-hover', type: 'fill-extrusion', source: 'z-hover', paint: { 'fill-extrusion-color': '#8b9aa8', 'fill-extrusion-height': ['+', H, 0.4], 'fill-extrusion-base': BASE, 'fill-extrusion-opacity': 1 } }, before);
+      map.addLayer({ id: 'z-3d-hover', type: 'fill-extrusion', source: 'z-hover', paint: { 'fill-extrusion-color': '#a8a29a', 'fill-extrusion-height': ['+', H, 0.4], 'fill-extrusion-base': BASE, 'fill-extrusion-opacity': 1 } }, before);
       map.addSource('z-pois', { type: 'geojson', data: empty });
       map.addLayer({ id: 'z-3d-pois', type: 'fill-extrusion', source: 'z-pois', paint: { 'fill-extrusion-color': ['get', 'color'], 'fill-extrusion-height': ['+', ['get', 'height'], 0.6], 'fill-extrusion-base': 0, 'fill-extrusion-opacity': 1 } }, before);
       map.addSource('z-asset', { type: 'geojson', data: empty });
