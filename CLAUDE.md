@@ -53,6 +53,9 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
 6. PDFs are linked as files. Never embed them.
 7. **Published** on GitHub Pages since 10 Sep 2026 (see top). Every push to `main` goes live within a minute; verify
    on the live URL with `tools/shoot.js` after pushing. Old catalogue stays reachable at `/catalog/`.
+8. **Backups.** Tag `zarea-v1-lagmar` (+ branch `zarea-v1-lagmar-backup`) = the Lagmar-style v1 as published on
+   10 Sep 2026, before the upscale restyle. To return to it: `git checkout main && git reset --hard zarea-v1-lagmar`
+   (or `git revert` the restyle commits) and push.
 
 ## Known gotchas
 
