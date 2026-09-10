@@ -178,14 +178,14 @@ section[id] { scroll-margin-top: 72px; }
 .today figcaption .eyebrow { display: block; margin-bottom: 4px; color: var(--gold); }
 .today__note { margin-top: 28px; }
 
-/* attached conditions: stated before the price */
-.attached { margin-top: clamp(56px, 7vw, 96px); padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--gold-soft); }
-.attached__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 96px); align-items: start; }
-.attached__lead { margin-top: 14px; color: var(--ink-2); font-size: 15px; }
-.attached__list { list-style: none; padding: 0; margin: 0; counter-reset: cond; }
-.attached__list li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 16px 0; border-top: 1px solid var(--gold-faint); counter-increment: cond; font-size: 15px; line-height: 1.55; color: var(--ink); }
-.attached__list li:last-child { border-bottom: 1px solid var(--gold-faint); }
-.attached__list li::before { content: counter(cond, decimal-leading-zero); font-family: var(--serif); font-weight: 600; font-optical-sizing: none; font-variation-settings: var(--serif-num); font-size: 18px; color: var(--gold); line-height: 1.3; }
+/* attached conditions: one centred statement, no rules */
+.attached { max-width: 64ch; margin: clamp(72px, 9vw, 128px) auto 0; text-align: center; }
+.attached h3 { font-size: clamp(28px, 3vw, 40px); }
+.attached__lead { margin: 14px auto 0; color: var(--ink-3); font-size: 15px; max-width: 48ch; }
+.attached__items { margin-top: 36px; }
+.attached__items p { font-size: 16.5px; line-height: 1.6; color: var(--ink); }
+.attached__items p + p { margin-top: 28px; padding-top: 28px; position: relative; }
+.attached__items p + p::before { content: ""; position: absolute; top: 0; left: 50%; width: 28px; height: 1px; margin-left: -14px; background: var(--gold); }
 .iban { font-family: var(--font) !important; font-size: 14px !important; font-weight: 500 !important; letter-spacing: 0.08em; }
 .terms dd a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--gold-soft); }
 

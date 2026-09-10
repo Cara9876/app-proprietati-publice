@@ -41,7 +41,7 @@
 
     // lists
     $('[data-list="steps"]').innerHTML = T.steps.map((s) => '<li><div><b>' + h(s[0]) + '</b><span>' + h(s[1]) + '</span></div></li>').join('');
-    $$('[data-list="conditions"]').forEach((el) => { el.innerHTML = T.conditions.map((c) => '<li>' + h(c) + '</li>').join(''); });
+    $$('[data-list="conditions"]').forEach((el) => { const tag = el.tagName === 'DIV' ? 'p' : 'li'; el.innerHTML = T.conditions.map((c) => '<' + tag + '>' + h(c) + '</' + tag + '>').join(''); });
     if (T.submission) {
       const S = T.submission;
       setField('submission-where', S.where); setField('submission-form', S.form);
