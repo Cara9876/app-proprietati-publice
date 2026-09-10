@@ -4,7 +4,7 @@
 (function () {
   'use strict';
   const STYLE_URL = 'https://tiles.openfreemap.org/styles/positron';
-  const ASSET = '#B9A176';
+  const ASSET = '#C4A056';
   const CATS = { state: ['State institutions', '#4A5A7A'], finance: ['Finance', '#5E7A6A'], landmark: ['Landmarks', '#8A7AA0'] };
   const h = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const dist = (m) => (m < 950 ? Math.round(m / 10) * 10 + ' m' : (m / 1000).toFixed(1) + ' km');

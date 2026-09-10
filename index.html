@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Onest:wght@400;500;600&display=swap">
 <link rel="preload" as="image" imagesrcset="assets/img/concept-dusk-1000.avif 1000w, assets/img/concept-dusk-1672.avif 1672w" imagesizes="100vw" type="image/avif">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.6.0/maplibre-gl.min.css" integrity="sha384-GriUtmHM/C5kppqM+je9BCInk5YLY4k8/MEXQNSB9gE0BLi6af+iFZlypsIX+LE6" crossorigin="anonymous">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -22,8 +24,8 @@
 
 <header class="top" id="top">
   <a class="brand" href="#top" aria-label="Hotel Zarea, back to top">
-    <span class="brand__mark" aria-hidden="true">Z</span>
-    <span class="brand__text"><strong>Hotel Zarea</strong><small>Chișinău</small></span>
+    <img class="brand__logo brand__logo--light" src="assets/img/logo-full-light-120.png" srcset="assets/img/logo-full-light-120.png 1x, assets/img/logo-full-light-240.png 2x" width="297" height="120" alt="Hotel Zarea" decoding="async">
+    <img class="brand__logo brand__logo--dark" src="assets/img/logo-full-120.png" srcset="assets/img/logo-full-120.png 1x, assets/img/logo-full-240.png 2x" width="297" height="120" alt="" aria-hidden="true" decoding="async">
   </a>
   <nav class="nav" aria-label="Sections">
     <a href="#property">Property</a>
@@ -214,7 +216,7 @@
   <div class="lmap wrap" id="lmap">
     <div id="locmap" role="region" aria-label="3D map of the Anton Pann block with Hotel Zarea and nearby landmarks"></div>
     <button class="lmap__3d" type="button" data-3d aria-pressed="true">3D</button>
-    <div class="lmap__hint"><span><i style="background:#B9A176"></i> <b>Hotel Zarea</b></span><span class="lmap__hint-src">loading landmarks from OpenStreetMap…</span></div>
+    <div class="lmap__hint"><span><i style="background:#C4A056"></i> <b>Hotel Zarea</b></span><span class="lmap__hint-src">loading landmarks from OpenStreetMap…</span></div>
     <noscript><p class="lmap__noscript">Map requires JavaScript. The hotel is at Strada Anton Pann 4, Chișinău (47.0312, 28.8362).</p></noscript>
   </div>
   <ul class="dist wrap" data-list="distances"></ul>
@@ -302,6 +304,7 @@
 <footer class="foot">
   <div class="wrap foot__grid">
     <div>
+      <img class="foot__logo" src="assets/img/logo-full-120.png" srcset="assets/img/logo-full-120.png 1x, assets/img/logo-full-240.png 2x" width="297" height="120" alt="Hotel Zarea" loading="lazy" decoding="async">
       <p class="foot__org"><strong>Public Property Agency</strong> of the Republic of Moldova<br><a href="https://app.gov.md" target="_blank" rel="noopener">app.gov.md</a></p>
       <p class="foot__org"><strong>Invest Moldova Agency</strong><br><a href="https://invest.gov.md" target="_blank" rel="noopener">invest.gov.md</a></p>
     </div>

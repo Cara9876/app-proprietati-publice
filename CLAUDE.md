@@ -32,6 +32,12 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
    titles; **Onest** for body and for the tracked 11 px small capitals used on nav, buttons, labels, eyebrows.
    Bodoni Moda is set at **weight 500 with the optical-size axis pinned to 22** (`--serif-opsz`, `font-optical-sizing:
    none`): at the display optical size its hairlines vanish and Leo found it unreadable. Keep that on every serif use.
+   **Logo** (from the boss, 10 Sep 2026): burgundy `#700112` + gold `#D2A13D` wordmark with a building mark.
+   Source `assets/img/src-logo.png` (flat ivory background); `logo-full*.png` are alpha-cut by the script in the
+   session notes (background noise floor 16, ramp to 72, edges un-blended). `logo-full-light` swaps burgundy for
+   ivory and is the header logo over the hero; the burgundy one appears once the header turns solid and in the
+   footer. `logo-mark` is the building alone (favicon, touch icon). Site gold is `#C4A056`, tuned toward the logo.
+   Burgundy is used nowhere else on the page.
    Rectangular buttons, no pills, no rounded corners, no shadows except under the slider frame. Section eyebrows
    with champagne hairlines, centred on single-column sections. Red and navy are gone. No countdown anywhere.
    Page rhythm: ivory, dark charcoal break (compare), ivory, ivory + map, deeper ivory (operations), warm charcoal
