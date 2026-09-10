@@ -69,7 +69,20 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
    10 Sep 2026, before the upscale restyle. To return to it: `git checkout main && git reset --hard zarea-v1-lagmar`
    (or `git revert` the restyle commits) and push.
 
+## Feedback round from Regina Mogorean (10 Sep 2026), all applied
+- Numerals were too thin → serif numerals at weight 600, optical size 16 (`--serif-num`); titles 500 / opsz 20.
+- The shelter (IGSU) and Premier Energy conditions are stated **before the price**, in "Attached to the sale"
+  right after the operations section; the terms box links up to them.
+- Her English copy replaced ours in: property, compare, directions lead, location, operations, documents, hero lead
+  ("right in the heart of Chișinău").
+- A room must be visible → the old prospect's room photograph (`src-room.webp`, 576×768) sits under the figures
+  with the entrance photo, labelled "Photograph, 2026". A room *concept* render would allow a third slider pair.
+- How to apply was unclear → step 2 and three terms rows now say: on paper at the agency (no online channel),
+  Annex 1 form, attachments, and the two treasury IBANs from the Gazette notice p. 67 (in `data/site.json`).
+
 ## Known gotchas
+- `setField` sets `textContent` on the element carrying `data-field`; never put it on a `dd` that also holds a
+  `<small>` child, or the child is wiped. Wrap the text in a `span` instead.
 
 - The header is `position: fixed`; sections use `scroll-margin-top: 72px`; the mobile nav is fixed at 64 px.
 - `.section + .section` removes top padding (specificity 0,2,0). Sections that need it back must be selected as

@@ -9,6 +9,7 @@ SOURCES = {           # name: (source file, widths)
     'tower':    ('src-tower.webp',    [2000, 1400, 900, 640]),
     'canopy':   ('src-canopy.png',    [1024, 640]),
     'winter':   ('src-winter.png',    [500]),
+    'room':     ('src-room.webp',     [576, 400]),
     'concept-day':      ('src-concept-day.png',      [1536, 1000, 640]),
     'concept-entrance': ('src-concept-entrance.png', [1672, 1000, 640]),
     'concept-dusk':     ('src-concept-dusk.png',     [1672, 1000, 640]),

@@ -41,7 +41,13 @@
 
     // lists
     $('[data-list="steps"]').innerHTML = T.steps.map((s) => '<li><div><b>' + h(s[0]) + '</b><span>' + h(s[1]) + '</span></div></li>').join('');
-    $('[data-list="conditions"]').innerHTML = T.conditions.map((c) => '<li>' + h(c) + '</li>').join('');
+    $$('[data-list="conditions"]').forEach((el) => { el.innerHTML = T.conditions.map((c) => '<li>' + h(c) + '</li>').join(''); });
+    if (T.submission) {
+      const S = T.submission;
+      setField('submission-where', S.where); setField('submission-form', S.form);
+      setField('deposit-iban', S.depositAccount.iban); setField('deposit-beneficiary', S.depositAccount.beneficiary + ' · fiscal code ' + S.depositAccount.fiscalCode);
+      setField('fee-iban', S.feeAccount.iban); setField('fee-beneficiary', S.feeAccount.beneficiary + ' · fiscal code ' + S.feeAccount.fiscalCode);
+    }
     $('[data-list="documents"]').innerHTML = D.documents.map((d) => '<li><a href="' + h(d[2]) + '" target="_blank" rel="noopener"><span><b>' + h(d[0]) + '</b><span>' + h(d[1]) + '</span></span><span class="docs__lang">' + h(d[3]) + '</span><span class="docs__meta">PDF · ' + (d[4] > 1e6 ? (d[4] / 1048576).toFixed(1) + ' MB' : Math.round(d[4] / 1024) + ' KB') + '</span></a></li>').join('');
     $('[data-list="distances"]').innerHTML = D.landmarks.map((l) => { const d = km([P.lng, P.lat], [l[1], l[2]]); return '<li><b>' + h(l[0]) + '</b><span>' + (d < 0.95 ? Math.round(d * 100) * 10 + ' m' : d.toFixed(1) + ' km') + '</span></li>'; }).join('');
     $('[data-block="contact"]').innerHTML = '<p><small>' + h(C.organisation) + '</small>' + h(C.unit) + '<small>' + h(C.address) + '</small></p>' +
