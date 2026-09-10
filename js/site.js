@@ -64,11 +64,6 @@
     }
   }
 
-  /* ---------- floor-use stacks (12 floors, ground floor first) ---------- */
-  $$('.stack[data-stack]').forEach((el) => {
-    el.innerHTML = el.dataset.stack.split(',').map((part) => { const [use, n] = part.split(':'); return ('<i class="u-' + use + '"></i>').repeat(Number(n)); }).join('');
-  });
-
   /* ---------- compare slider ---------- */
   const cmp = $('#compare');
   if (cmp) {

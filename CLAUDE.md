@@ -36,7 +36,9 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
    with champagne hairlines, centred on single-column sections. Red and navy are gone. No countdown anywhere.
    Page rhythm: ivory, dark charcoal break (compare), ivory, ivory + map, deeper ivory (operations), warm charcoal
    (the sale) with the terms on ivory, ivory (documents), dark (viewings), ivory footer with a champagne rule.
-   The Lagmar-style v1 is preserved at tag `zarea-v1-lagmar`.
+   "Three directions" are **Whiteley-style image panels** (4:5, serif title over the image, concept label, one gold
+   tracked line of floor allocation, one paragraph). Leo rejected the earlier card version as "Claude made": no
+   stats rows, no bars, no Keeps/Needs, no bordered boxes there. The Lagmar-style v1 is at tag `zarea-v1-lagmar`.
    Motion (unchanged): the hero is a slow loop of the four renders opening on the dusk render (8 s each, 2 s
    cross-fade, Ken Burns alternating), fixed header transparent over the hero then ivory after 40 px, a 2 px
    champagne scroll-progress line, staggered hero entrance, hairline nav underline. All gated by reduced-motion.
@@ -68,5 +70,4 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
   `.section.operating` etc., or the rule silently wins. `.compare-section` is a dark break and keeps full padding.
 - Contacts (two phones, two emails) are verified against the Official Gazette notice p. 2 (`comunicat-mo-261-264`).
 - The hero headline has `ready <br>for`; the break is hidden below 600 px, so the space before it matters.
-- The floor-use stacks in "Three directions" are rendered from `data-stack="office:4,hotel:8"` (ground floor first).
 - The compare slider clips the "after" side with `clip-path`; anything inside it is clipped too.
