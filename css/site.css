@@ -182,7 +182,7 @@ section[id] { scroll-margin-top: 72px; }
 
 /* attached conditions: a short section of its own, between the operations and the sale */
 .section.attached { padding-block: clamp(56px, 7vw, 100px); background: var(--paper); text-align: center; }
-.section.attached h2 { font-size: clamp(28px, 3.2vw, 44px); margin-inline: auto; }
+.section.attached h2 { font-size: clamp(28px, 3.2vw, 44px); margin-inline: auto; max-width: none; }
 .attached__lead { margin: 14px auto 0; color: var(--ink-3); font-size: 15px; max-width: 48ch; }
 .attached__items { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 clamp(40px, 6vw, 96px); max-width: 1040px; margin: 40px auto 0; text-align: left; }
 .attached__items p { position: relative; padding-top: 22px; font-size: 16px; line-height: 1.6; color: var(--ink); }
