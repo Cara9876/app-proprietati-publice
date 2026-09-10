@@ -51,6 +51,7 @@ h3 { font-family: var(--serif); font-weight: 500; font-optical-sizing: none; fon
 .section { padding-block: var(--section); }
 .section + .section { padding-top: 0; }
 .section.operating, .section.transaction, .section.documents, .section.compare-section, .section.potential { padding-top: var(--section); }
+.section.attached { padding-top: clamp(56px, 7vw, 100px); }
 
 /* buttons: rectangular, tracked capitals */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 17px 28px; font-size: 11.5px; font-weight: 500; letter-spacing: var(--track); text-transform: uppercase; line-height: 1; text-decoration: none; border: 1px solid transparent; white-space: nowrap; transition: background-color .2s, color .2s, border-color .2s; }
@@ -179,9 +180,9 @@ section[id] { scroll-margin-top: 72px; }
 .today figcaption .eyebrow { display: block; margin-bottom: 4px; color: var(--gold); }
 .today__note { margin-top: 28px; }
 
-/* attached conditions: centred title, the two conditions side by side */
-.attached { margin: clamp(72px, 9vw, 128px) auto 0; text-align: center; }
-.attached h3 { font-size: clamp(28px, 3vw, 40px); }
+/* attached conditions: a short section of its own, between the operations and the sale */
+.section.attached { padding-block: clamp(56px, 7vw, 100px); background: var(--paper); text-align: center; }
+.section.attached h2 { font-size: clamp(28px, 3.2vw, 44px); margin-inline: auto; }
 .attached__lead { margin: 14px auto 0; color: var(--ink-3); font-size: 15px; max-width: 48ch; }
 .attached__items { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 clamp(40px, 6vw, 96px); max-width: 1040px; margin: 40px auto 0; text-align: left; }
 .attached__items p { position: relative; padding-top: 22px; font-size: 16px; line-height: 1.6; color: var(--ink); }
