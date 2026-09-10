@@ -1,68 +1,64 @@
-# APP · Proprietăți publice — instrucțiuni pentru Claude
+# Hotel Zarea — site for buyers and investors
 
-Machetă funcțională (HTML/CSS/JS static, fără build) a platformei Agenției Proprietății Publice:
-catalog map-first al activelor publice oferite mediului privat, cu Hotelul „Zarea” ca activ-pilot.
-Leo o arată unor oameni reali din administrație. **Credibilitatea e produsul**: date reale, hărți reale,
-sistem de design real. Citește `README.md` pentru structură și surse; aici sunt regulile de lucru.
+**This repo is the deployment.** GitHub Pages serves `main` at <https://cara9876.github.io/app-proprietati-publice/>;
+`git push` = deploy. The root is the Zarea investor site. `catalog/` is the earlier public-property catalogue
+prototype, kept as a backup and still served at <https://cara9876.github.io/app-proprietati-publice/catalog/>
+(its own `catalog/CLAUDE.md` applies inside it; git tag `catalog-v1-backup` and branch `catalog-backup` hold the
+state before the move). The standalone copy at `~/Projects/hotel-zarea` is retired; work here.
 
-## Rulare și verificare
+Static single-page site (HTML/CSS/JS, no build) presenting the privatisation of Hotel Zarea, Chișinău, to a
+business audience. English first; the data file is the only thing to edit when dates or prices change.
+Read `README.md` for structure. This file holds the rules.
+
+## Run and verify
 
 ```bash
-python3 -m http.server 8765        # din acest folder → http://localhost:8765/
-node tools/shoot.js <dir> [base] [filtru-nume]   # capturi headless după ce hărțile s-au încărcat
+python3 -m http.server 8766 --directory /Users/leo/Projects/app-proprietati-publice   # or preview_start name "zarea"
+node tools/shoot.js http://localhost:8766/ shots/desktop.png 1440 900 16000
+node tools/shoot.js http://localhost:8766/ shots/mobile.png 390 844 18000
+node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000 1400   # viewport only, scrolled to 1400 px
 ```
 
-- Browser pane-ul din Claude desktop **oprește WebGL când e ascuns** → hărțile par goale acolo. Verifică
-  întotdeauna cu `tools/shoot.js` (Chrome headless prin DevTools Protocol) și uită-te la capturi.
-- Fișa Zarea are nevoie de ~14 s până răspunde Overpass; `shoot.js` știe asta.
-- După orice schimbare vizibilă: captură → privește → abia apoi spune că e gata.
+- The Browser pane stops WebGL when hidden, so the map looks blank there. Always verify with `tools/shoot.js`
+  (headless Chrome via CDP, scrolls the page so lazy images and the map load) and look at the captures.
+- After any visible change: capture, look, then say it is done.
 
-## Publicare
+## Design rules (agreed with Leo, 10 Sep 2026)
 
-Live: <https://cara9876.github.io/app-proprietati-publice/> — GitHub Pages din `main`. `git push` = deploy.
-Repo public `Cara9876/app-proprietati-publice`. Leo a decis (10 sept 2026) să publice **tot**, inclusiv
-documentele APP din `assets/docs/`. Dacă vrea să le ascundă: `PUBLIC_HOST = true` în `js/app.js` + `.gitignore`.
+1. **Lagmar register, civic content.** Bold grotesk (Onest 800 uppercase hero, 700 headings), big photographs,
+   plain large numbers. Palette: paper white, civic off-white `#F4F5F2`, graphite `#1B2125`, the red of the
+   existing sign `#C8292F` as the only accent. No gold, no serif, no cards, no gradients except photo shades.
+   Like Lagmar, the page alternates: white sections, two dark graphite "breaks" (compare, visit), one off-white
+   section (operating figures) and one **deep navy** section (`#0F1E3A`, the transaction). Leo asked for the breaks
+   and for a third colour explicitly. The three directions are **Lagmar-style cards** (rounded 18 px, image with title
+   overlay, stats row, floor-allocation bar, Keeps/Needs) because Leo asked for "these cards" from lagmar.md.
+   Motion: the hero is a slow loop of the four renders (8 s each, 1.8 s cross-fade, Ken Burns drift alternating
+   direction, starts 2.6 s after load, pauses when hidden or scrolled away) as the stand-in for Lagmar's video;
+   fixed header that floats transparent over the hero and turns solid after 40 px, a 3 px red scroll-progress
+   line at the very top, staggered hero entrance, sliding nav underline. All gated by prefers-reduced-motion.
+2. **No invented facts.** Every figure comes from `assets/docs/` or app.gov.md; `data/site.json` carries `verifiedAt`.
+   Time-sensitive items (price, deadline, auction) are rendered from the data file, never hard-coded twice.
+3. **Concept images must be labelled** "Architectural concept. Not an approved project." Leo delivered four renders on
+   10 Sep 2026 (`assets/img/src-concept-*`); the day render is the hero, the slider has two switchable pairs
+   (approach, entrance), the three direction columns use the dusk, entrance and aerial renders. Brief and status in
+   `docs/concept-image-brief.md`.
+4. **The map is the real 3D MapLibre map** ported from `~/Projects/app-proprietati-publice` (`js/map.js`):
+   OpenFreeMap positron basemap. The Zarea tower and the institutions (Parliament, Presidency, Government House,
+   National Bank, Ministry of Finance, City Hall, MFA, Constitutional Court, World Bank, Cathedral, Arch) are
+   **baked outlines in `data/landmarks.geojson`**, fetched once from OpenStreetMap on 10 Sep 2026. No live Overpass
+   call at runtime (it hung for Leo). The camera fits those buildings with bearing 205 so the hotel sits low in the
+   frame and the government quarter is "up". Investors care about institutions, not ASEM or the Pushkin museum.
+5. **Hero must be dark.** The building is ugly up close; the boss liked the old hero because the photo was subdued.
+   Keep the strong shade + desaturation on the hero image so the white type reads and the facade recedes.
+6. PDFs are linked as files. Never embed them.
+7. Not published. Leo decides when and where (GitHub Pages is the obvious route).
 
-## Reguli de design (Leo le-a impus explicit)
+## Known gotchas
 
-1. **MUD real, nu „MUD-like”.** Tokenii și componentele vin din `vendor/mud/main.css` (egov-moldova/design-system
-   @ dab645a): Onest, `--blue-sky-600` ca unic accent, `status-tag`, `mud-btn`, `chip`, pre-header. Nu inventa
-   fonturi sau hex-uri. Tot ce e custom stă în `css/app.css` cu prefix `ap-`.
-2. **Disciplina Zillow.** Search-first, split hartă/listă cu pinuri-preț, fișă cu galerie mozaic + rail sticky.
-   Leo a respins o machetă anterioară ca „AI slop” (font display generic, hartă SVG desenată, carduri placeholder,
-   tab-bar de prototip). Nu reveni la asta.
-3. **Fără carduri-șablon cu iconițe în pătrate colorate, margini colorate laterale, pastile „de verificat”.**
-   Excepție acceptată de Leo: cardurile „Trei moduri de a participa” (le-a vrut înapoi).
-4. **Suprafețe sleek:** fără border 1 px + inel de umbră. Folosește `--ap-edge` (hairline 7 %) și `--ap-sh-1/2`;
-   hover-ul adâncește umbra, nu închide marginea.
-5. **Fără date inventate.** Fiecare cifră din fișa Zarea are sursă în `~/Downloads/zarea/` (PDF-urile APP) — vezi
-   README „Surse de adevăr”. Ce nu e în document se marchează „de confirmat” sau nu apare. Nu desena randări false;
-   activele fără foto primesc thumbnail din hartă, etichetat.
-6. **Reperele de pe harta 3D vin din OpenStreetMap**, alese de lista de referință `ZAREA.pois` și potrivite după
-   nume (`matchRef`). Nu plasa clădiri manual. Zarea = etichetă mare, reperele = etichete mici.
-
-## Capcane tehnice deja rezolvate (nu le reintroduce)
-
-- **Z-fighting 3D:** straturile evidențiate au contur decalat 0,4 m (`offsetRing`) și +0,4 m înălțime, opace;
-  stratul de bază are opacitate 0,55.
-- **Hover pe MultiPolygon:** OpenMapTiles unește clădiri mici; `partAt` coboară pe ecran cel mult cât înălțimea
-  proiectată a clădirii. Un scan fix (140 px) aprindea clădiri de departe.
-- **`.lmap > div { inset:0 }`** a acoperit odată harta cu legenda — țintește `#locmap`, nu `div`.
-- **Grid-uri cu `1fr`** depășeau pe mobil → folosește `minmax(0, 1fr)`.
-- **Punctul geocodat al Zarea** cade pe anexa joasă; clădirea se alege după `levels` (12 → ~36 m), nu după punct.
-- MapLibre e încărcat din cdnjs cu SRI; dacă schimbi versiunea, recalculează hash-urile.
-
-## Ce urmează (stare la 10 sept 2026)
-
-- Fotografiile Zarea le trimite Leo (nu extrage din PDF-uri — a cerut explicit să nu). Se pun în
-  `assets/photos/` + intrări în `data/properties.json`; galeria suportă orice număr (1+4 + lightbox).
-- Set de iconițe: brief în README, Leo îl generează cu ChatGPT.
-- Poligoane cadastrale reale pentru Zarea; RU/EN reale; formular EOI pe componente MUD.
-- De confirmat cu APP: ora licitației (10:00 din comunicatul de prelungire vs. 10:30 din Ordin).
-
-## Model de lucru
-
-Leo e orchestrat de Claude ca „orchestrator, vizionar și designer”. Subagenți: Haiku pentru scouting, Opus doar
-pentru lucru greu, niciodată Fable (regulă globală). Prezintă direcția în câteva rânduri, ia un „da”, apoi construiește
-și verifică cu capturi. Memoria persistentă a proiectului: `~/.claude/projects/-Users-leo/memory/app-proprietati-publice.md`;
-hub Obsidian: `~/Projects/second-brain/Projects/APP-Proprietati-Publice.md`.
+- The header is `position: fixed`; sections use `scroll-margin-top: 72px`; the mobile nav is fixed at 64 px.
+- `.section + .section` removes top padding (specificity 0,2,0). Sections that need it back must be selected as
+  `.section.operating` etc., or the rule silently wins. `.compare-section` is a dark break and keeps full padding.
+- Contacts (two phones, two emails) are verified against the Official Gazette notice p. 2 (`comunicat-mo-261-264`).
+- The hero headline has `ready <br>for`; the break is hidden below 600 px, so the space before it matters.
+- The floor-use stacks in "Three credible directions" are rendered from `data-stack="office:4,hotel:8"` (ground floor first).
+- The compare slider clips the "after" side with `clip-path`; anything inside it is clipped too.

@@ -1,99 +1,321 @@
 <!doctype html>
-<html lang="ro">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Proprietăți publice · Agenția Proprietății Publice</title>
-<meta name="description" content="Catalogul activelor publice oferite mediului privat: privatizare, vânzare, locațiune și concesiune. Hartă, fișe, documente și termene.">
-<link rel="icon" href="vendor/mud/logos/gov.svg">
+<title>Hotel Zarea, Chișinău — a central public asset offered for privatisation</title>
+<meta name="description" content="A 12-storey, 137-room hotel on Anton Pann street in central Chișinău, state-owned and operating, offered for sale by open auction through the Public Property Agency.">
+<meta property="og:title" content="Hotel Zarea is ready for its next use">
+<meta property="og:description" content="A 12-storey public asset in the centre of Chișinău, offered transparently to investors.">
+<meta property="og:image" content="assets/img/concept-day-1536.jpg">
+<meta name="theme-color" content="#1B2125">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">
+<link rel="preload" as="image" imagesrcset="assets/img/concept-day-1000.avif 1000w, assets/img/concept-day-1536.avif 1536w" imagesizes="100vw" type="image/avif">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.6.0/maplibre-gl.min.css" integrity="sha384-GriUtmHM/C5kppqM+je9BCInk5YLY4k8/MEXQNSB9gE0BLi6af+iFZlypsIX+LE6" crossorigin="anonymous">
-<link rel="stylesheet" href="vendor/mud/fonts.css">
-<link rel="stylesheet" href="vendor/mud/main.css">
-<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
+<a class="skip" href="#property">Skip to content</a>
+<div class="progress" aria-hidden="true"><span></span></div>
 
-<!-- Banda guvernamentală MUD (markup din elements/header.html al design-system-ului) -->
-<div class="pre-header">
-  <div class="pre-header__content ap-container">
-    <div class="pre-header__logo">
-      <a href="https://gov.md" target="_blank" rel="noreferrer">
-        <img src="vendor/mud/logos/government-logo.png" alt="">
-        <span>Guvernul Republicii Moldova</span>
-      </a>
-    </div>
-    <div class="pre-header__right ap-prehead-right">
-      <span class="ap-prehead-note">Serviciu public · date verificate <time datetime="2026-09-09">9 sept 2026</time></span>
-    </div>
-  </div>
-</div>
-
-<header class="ap-header" id="top">
-  <div class="ap-container ap-header__in">
-    <a class="ap-brand" href="#/" aria-label="APP · Proprietăți publice, acasă">
-      <span class="ap-brand__text"><b>Proprietăți publice</b><small>Agenția Proprietății Publice</small></span>
-    </a>
-    <nav class="ap-nav" aria-label="Navigare principală">
-      <a class="ap-nav__link" href="#/cauta" data-nav="cauta">Caută proprietăți</a>
-      <a class="ap-nav__link" href="#/cum-participi" data-nav="cum-participi">Cum participi</a>
-      <a class="ap-nav__link" href="#/calendar" data-nav="calendar">Calendar licitații</a>
-      <a class="ap-nav__link" href="https://app.gov.md" target="_blank" rel="noreferrer">Despre APP</a>
-    </nav>
-    <div class="ap-header__right">
-      <div class="ap-lang" role="group" aria-label="Limbă">
-        <button class="ap-lang__btn is-on" type="button" aria-pressed="true">RO</button>
-        <button class="ap-lang__btn" type="button" aria-pressed="false">RU</button>
-        <button class="ap-lang__btn" type="button" aria-pressed="false">EN</button>
-      </div>
-      <button class="ap-burger" type="button" aria-label="Meniu" aria-expanded="false" data-burger>
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
+<header class="top" id="top">
+  <a class="brand" href="#top" aria-label="Hotel Zarea, back to top">
+    <span class="brand__mark" aria-hidden="true"></span>
+    <span class="brand__text"><strong>Hotel Zarea</strong><small>Privatisation · Public Property Agency</small></span>
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#property">Property</a>
+    <a href="#potential">Potential</a>
+    <a href="#location">Location</a>
+    <a href="#transaction">Transaction</a>
+    <a href="#documents">Documents</a>
+  </nav>
+  <a class="btn btn--solid top__cta" href="#visit">Arrange a visit</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><span></span></button>
 </header>
+<nav class="mobile-nav" id="mobile-nav" hidden aria-label="Sections">
+  <a href="#property">Property</a><a href="#potential">Potential</a><a href="#location">Location</a><a href="#transaction">Transaction</a><a href="#documents">Documents</a><a href="#visit">Arrange a visit</a>
+</nav>
 
-<main id="app" class="ap-main" tabindex="-1"></main>
-
-<footer class="ap-footer">
-  <div class="ap-container ap-footer__in">
-    <div class="ap-footer__brand">
-      <div>
-        <b>Agenția Proprietății Publice</b>
-        <p>Piața Marii Adunări Naționale 1, Chișinău, MD-2033<br>Program: luni–vineri, 08:00–17:00</p>
-      </div>
-    </div>
-    <div class="ap-footer__cols">
-      <div>
-        <h4>Proprietăți</h4>
-        <a href="#/cauta">Toate proprietățile</a>
-        <a href="#/cauta?tranzactie=licitatie">Licitații cu strigare</a>
-        <a href="#/cauta?tranzactie=concurs">Concursuri investiționale</a>
-        <a href="#/cauta?tranzactie=locatiune">Locațiune și concesiune</a>
-      </div>
-      <div>
-        <h4>Participare</h4>
-        <a href="#/cum-participi">Cum participi</a>
-        <a href="#/calendar">Calendar licitații</a>
-        <a href="#/cum-participi">Întrebări frecvente</a>
-        <a href="https://app.gov.md/privatizare/" target="_blank" rel="noreferrer">Rezultate și arhivă</a>
-      </div>
-      <div>
-        <h4>Date deschise</h4>
-        <a href="https://app.gov.md/privatizare/" target="_blank" rel="noreferrer">Sursa: app.gov.md</a>
-        <a href="data/properties.json">Setul de date (JSON)</a>
-        <a href="#/cum-participi">Metodologie și disclaimere</a>
-      </div>
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__media" aria-label="Architectural concepts of the renovated hotel, shown in sequence">
+    <picture class="hero__slide is-active">
+      <source type="image/avif" srcset="assets/img/concept-day-640.avif 640w, assets/img/concept-day-1000.avif 1000w, assets/img/concept-day-1536.avif 1536w" sizes="100vw">
+      <source type="image/webp" srcset="assets/img/concept-day-640.webp 640w, assets/img/concept-day-1000.webp 1000w, assets/img/concept-day-1536.webp 1536w" sizes="100vw">
+      <img src="assets/img/concept-day-1536.jpg" srcset="assets/img/concept-day-640.jpg 640w, assets/img/concept-day-1000.jpg 1000w, assets/img/concept-day-1536.jpg 1536w" sizes="100vw" width="1536" height="1024" alt="Architectural concept: the renovated Zarea tower with a new glazed entrance, seen from the forecourt through the trees" fetchpriority="high" decoding="async">
+    </picture>
+    <picture class="hero__slide">
+      <source type="image/avif" srcset="assets/img/concept-dusk-640.avif 640w, assets/img/concept-dusk-1000.avif 1000w, assets/img/concept-dusk-1672.avif 1672w" sizes="100vw">
+      <source type="image/webp" srcset="assets/img/concept-dusk-640.webp 640w, assets/img/concept-dusk-1000.webp 1000w, assets/img/concept-dusk-1672.webp 1672w" sizes="100vw">
+      <img src="assets/img/concept-dusk-1672.jpg" srcset="assets/img/concept-dusk-640.jpg 640w, assets/img/concept-dusk-1000.jpg 1000w, assets/img/concept-dusk-1672.jpg 1672w" sizes="100vw" width="1672" height="941" alt="Architectural concept: the renovated entrance lit at dusk" fetchpriority="low" decoding="async">
+    </picture>
+    <picture class="hero__slide">
+      <source type="image/avif" srcset="assets/img/concept-aerial-640.avif 640w, assets/img/concept-aerial-1000.avif 1000w, assets/img/concept-aerial-1672.avif 1672w" sizes="100vw">
+      <source type="image/webp" srcset="assets/img/concept-aerial-640.webp 640w, assets/img/concept-aerial-1000.webp 1000w, assets/img/concept-aerial-1672.webp 1672w" sizes="100vw">
+      <img src="assets/img/concept-aerial-1672.jpg" srcset="assets/img/concept-aerial-640.jpg 640w, assets/img/concept-aerial-1000.jpg 1000w, assets/img/concept-aerial-1672.jpg 1672w" sizes="100vw" width="1672" height="941" alt="Architectural concept: the tower within its block at sunset" fetchpriority="low" decoding="async">
+    </picture>
+    <picture class="hero__slide">
+      <source type="image/avif" srcset="assets/img/concept-entrance-640.avif 640w, assets/img/concept-entrance-1000.avif 1000w, assets/img/concept-entrance-1672.avif 1672w" sizes="100vw">
+      <source type="image/webp" srcset="assets/img/concept-entrance-640.webp 640w, assets/img/concept-entrance-1000.webp 1000w, assets/img/concept-entrance-1672.webp 1672w" sizes="100vw">
+      <img src="assets/img/concept-entrance-1672.jpg" srcset="assets/img/concept-entrance-640.jpg 640w, assets/img/concept-entrance-1000.jpg 1000w, assets/img/concept-entrance-1672.jpg 1672w" sizes="100vw" width="1672" height="941" alt="Architectural concept: the glazed ground floor under a flat canopy" fetchpriority="low" decoding="async">
+    </picture>
+  </div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <p class="hero__concept">Architectural concept, not an approved project</p>
+  <div class="hero__content wrap">
+    <p class="hero__status"><span class="dot" aria-hidden="true"></span> <span data-field="status">Listed for privatisation</span></p>
+    <h1 class="hero__title" id="hero-title">Hotel Zarea is ready <br>for its next use</h1>
+    <p class="hero__lead">A 12-storey hotel on Anton Pann street, a short walk from the National Bank of Moldova and Parliament. State-owned, still operating, and offered for sale by open auction.</p>
+    <div class="hero__actions">
+      <a class="btn btn--light" href="#property">Explore the property</a>
+      <a class="btn btn--ghost" href="assets/docs/profil-investitional-zarea-en.pdf" download>Download the investment profile <small>PDF, 11.5 MB</small></a>
     </div>
   </div>
-  <div class="ap-footer__legal">
-    <div class="ap-container">
-      <p>Informațiile de pe această platformă au rol informativ. Documentul oficial al fiecărei proceduri prevalează. Echivalentele valutare sunt orientative, la cursul BNM din data indicată. Harta, distanțele și contururile sunt orientative; datele cadastrale oficiale prevalează.</p>
-      <p class="ap-footer__meta">Machetă de concept · construită pe Modelul Unitar de Design (HG 677/2025) · hartă © <a href="https://openfreemap.org" target="_blank" rel="noreferrer">OpenFreeMap</a>, © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a></p>
+  <p class="hero__addr wrap"><span>Strada Anton Pann 4, Chișinău</span><a href="#location">See the map</a></p>
+</section>
+
+<section class="strip" aria-label="Key transaction facts">
+  <dl class="strip__grid wrap">
+    <div><dt>Initial price</dt><dd><b data-field="price">106,000,000</b> <span data-field="currency">MDL</span></dd></div>
+    <div><dt>Applications until</dt><dd><b data-field="deadline-date">19 October 2026</b> <span data-field="deadline-time">12:00</span></dd></div>
+    <div><dt>Auction</dt><dd><b data-field="auction-date">20 October 2026</b> <span data-field="auction-time">10:00</span></dd></div>
+    <div><dt>Time left to apply</dt><dd><b data-field="countdown">—</b> <span>as of <span data-field="today"></span></span></dd></div>
+  </dl>
+</section>
+
+<section class="section property" id="property" aria-labelledby="property-title">
+  <div class="wrap split">
+    <div class="split__text">
+      <h2 id="property-title">What is on offer</h2>
+      <p class="lead">The whole enterprise: the building, the land under it and a hotel that has been open since 1981.</p>
+      <p>The tower stands inside a quiet block behind Bulevardul Ștefan cel Mare, with its own forecourt, mature trees and a low entrance annex. It is connected to all utilities and heated by its own boiler house. The rooms, a 30-seat conference room and a 50-seat café are in daily use.</p>
+      <p>The building shows its age. That is the point: the frame, the plot and the location are sound, and the value lies in what a private owner can do with them.</p>
+      <p class="fine">Enterprise founded in 1992. <span data-field="ownership">100% state-owned, administered by the Public Property Agency</span>. IDNO <span data-field="idno">1003600080200</span>.</p>
     </div>
+    <dl class="figures">
+      <div><dd data-field="levels">12</dd><dt>floors</dt></div>
+      <div><dd data-field="rooms">137</dd><dt>rooms, from double to apartment</dt></div>
+      <div><dd><span data-field="usedArea">6,123.7</span> m²</dd><dt>usable floor area <small>ground footprint <span data-field="footprint">1,135.3</span> m²</small></dt></div>
+      <div><dd><span data-field="land">0.3111</span> ha</dd><dt>of land, in the centre of the capital</dt></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section compare-section" aria-labelledby="compare-title">
+  <div class="wrap">
+    <h2 id="compare-title">As it stands, and as it could stand</h2>
+    <p class="lead">The concrete frame, the window rhythm and the trees stay. What changes is the envelope, the entrance and the ground floor.</p>
+  </div>
+  <div class="compare wrap" id="compare">
+    <div class="compare__bar">
+      <div class="pairs" role="group" aria-label="Choose a view">
+        <button type="button" data-pair="approach" aria-pressed="true">The approach</button>
+        <button type="button" data-pair="entrance" aria-pressed="false">The entrance</button>
+      </div>
+      <p class="compare__how">Drag the line, or use the arrow keys.</p>
+    </div>
+    <div class="compare__frame">
+      <picture class="compare__img compare__img--now" data-pair-now="approach">
+        <source type="image/avif" srcset="assets/img/entrance-1000.avif 1000w, assets/img/entrance-1600.avif 1600w, assets/img/entrance-2400.avif 2400w" sizes="100vw">
+        <source type="image/webp" srcset="assets/img/entrance-1000.webp 1000w, assets/img/entrance-1600.webp 1600w, assets/img/entrance-2400.webp 2400w" sizes="100vw">
+        <img src="assets/img/entrance-1600.jpg" width="2400" height="1600" alt="Hotel Zarea as it stands in 2026, seen from the forecourt" loading="lazy" decoding="async">
+      </picture>
+      <picture class="compare__img compare__img--now" data-pair-now="entrance" hidden>
+        <source type="image/avif" srcset="assets/img/canopy-640.avif 640w, assets/img/canopy-1024.avif 1024w" sizes="100vw">
+        <source type="image/webp" srcset="assets/img/canopy-640.webp 640w, assets/img/canopy-1024.webp 1024w" sizes="100vw">
+        <img src="assets/img/canopy-1024.jpg" width="1024" height="576" alt="The existing entrance canopy and ground floor" loading="lazy" decoding="async">
+      </picture>
+      <picture class="compare__img compare__img--after" data-pair-after="approach">
+        <source type="image/avif" srcset="assets/img/concept-day-640.avif 640w, assets/img/concept-day-1000.avif 1000w, assets/img/concept-day-1536.avif 1536w" sizes="100vw">
+        <source type="image/webp" srcset="assets/img/concept-day-640.webp 640w, assets/img/concept-day-1000.webp 1000w, assets/img/concept-day-1536.webp 1536w" sizes="100vw">
+        <img src="assets/img/concept-day-1536.jpg" width="1536" height="1024" alt="Architectural concept of the renovated tower and forecourt" loading="lazy" decoding="async">
+      </picture>
+      <picture class="compare__img compare__img--after" data-pair-after="entrance" hidden>
+        <source type="image/avif" srcset="assets/img/concept-entrance-640.avif 640w, assets/img/concept-entrance-1000.avif 1000w, assets/img/concept-entrance-1672.avif 1672w" sizes="100vw">
+        <source type="image/webp" srcset="assets/img/concept-entrance-640.webp 640w, assets/img/concept-entrance-1000.webp 1000w, assets/img/concept-entrance-1672.webp 1672w" sizes="100vw">
+        <img src="assets/img/concept-entrance-1672.jpg" width="1672" height="941" alt="Architectural concept of the new entrance and glazed ground floor" loading="lazy" decoding="async">
+      </picture>
+      <div class="compare__handle" aria-hidden="true"><span></span></div>
+      <span class="compare__hint" aria-hidden="true">Drag</span>
+      <input class="compare__range" type="range" min="0" max="100" value="50" step="0.5" aria-label="Reveal the architectural concept. Left is today, right is the concept." aria-valuetext="50% concept">
+      <span class="compare__label compare__label--now">Photograph, 2026</span>
+      <span class="compare__label compare__label--after">Architectural concept</span>
+    </div>
+    <p class="compare__foot">Architectural concept. Not an approved project. Any intervention is subject to planning and technical review.</p>
+  </div>
+</section>
+
+<section class="section potential" id="potential" aria-labelledby="potential-title">
+  <div class="wrap">
+    <h2 id="potential-title">Three credible directions</h2>
+    <p class="lead">The valuation report names commercial or administrative use as the site's best use, alongside the hotel function it has today. Twelve floors, one plot, three ways to fill them.</p>
+  </div>
+  <div class="options wrap">
+    <article class="option">
+      <div class="option__media">
+        <picture>
+          <source type="image/avif" srcset="assets/img/concept-dusk-640.avif 640w, assets/img/concept-dusk-1000.avif 1000w, assets/img/concept-dusk-1672.avif 1672w" sizes="(min-width: 900px) 30vw, 100vw">
+          <source type="image/webp" srcset="assets/img/concept-dusk-640.webp 640w, assets/img/concept-dusk-1000.webp 1000w, assets/img/concept-dusk-1672.webp 1672w" sizes="(min-width: 900px) 30vw, 100vw">
+          <img src="assets/img/concept-dusk-1000.jpg" width="1672" height="941" alt="Architectural concept: the renovated hotel entrance lit at dusk" loading="lazy" decoding="async">
+        </picture>
+        <span class="option__tag"><i></i> Architectural concept</span>
+        <h3>A renewed city hotel</h3>
+      </div>
+      <div class="option__body">
+        <p>The rooms are licensed, staffed and booked. Refurbish floor by floor while the business keeps running, then reposition for the conference, university and business travel that already fills it.</p>
+        <dl class="option__stats"><div><dt>Floors</dt><dd>12</dd></div><div><dt>Rooms</dt><dd>137</dd></div><div><dt>Usable area</dt><dd>6,124 m²</dd></div></dl>
+        <div class="option__alloc"><span>Floor allocation</span><span>12 floors hotel</span></div>
+        <div class="stack" data-stack="hotel:12" aria-label="Floor use: 12 floors hotel"></div>
+        <dl class="option__facts"><div><dt>Keeps</dt><dd>137 rooms, licence, staff, bookings</dd></div><div><dt>Needs</dt><dd>Refurbishment, brand, new entrance</dd></div></dl>
+        <a class="option__link" href="#transaction">See the sale terms</a>
+      </div>
+    </article>
+    <article class="option">
+      <div class="option__media">
+        <picture>
+          <source type="image/avif" srcset="assets/img/concept-entrance-640.avif 640w, assets/img/concept-entrance-1000.avif 1000w, assets/img/concept-entrance-1672.avif 1672w" sizes="(min-width: 900px) 30vw, 100vw">
+          <source type="image/webp" srcset="assets/img/concept-entrance-640.webp 640w, assets/img/concept-entrance-1000.webp 1000w, assets/img/concept-entrance-1672.webp 1672w" sizes="(min-width: 900px) 30vw, 100vw">
+          <img src="assets/img/concept-entrance-1000.jpg" width="1672" height="941" alt="Architectural concept: a glazed ground floor under a flat canopy" loading="lazy" decoding="async">
+        </picture>
+        <span class="option__tag"><i></i> Architectural concept</span>
+        <h3>Hotel above, offices below</h3>
+      </div>
+      <div class="option__body">
+        <p>Split the tower by floor. Accommodation stays on the upper levels; the lower floors become professional offices or teaching space, a short walk from Parliament and the National Bank.</p>
+        <dl class="option__stats"><div><dt>Hotel floors</dt><dd>8</dd></div><div><dt>Office floors</dt><dd>4</dd></div><div><dt>Entrances</dt><dd>2</dd></div></dl>
+        <div class="option__alloc"><span>Floor allocation</span><span>4 office, 8 hotel</span></div>
+        <div class="stack" data-stack="office:4,hotel:8" aria-label="Floor use: 4 office, 8 hotel"></div>
+        <dl class="option__facts"><div><dt>Keeps</dt><dd>A smaller hotel on the upper floors</dd></div><div><dt>Needs</dt><dd>Separate lobbies, lifts, fit-out</dd></div></dl>
+        <a class="option__link" href="#transaction">See the sale terms</a>
+      </div>
+    </article>
+    <article class="option">
+      <div class="option__media">
+        <picture>
+          <source type="image/avif" srcset="assets/img/concept-aerial-640.avif 640w, assets/img/concept-aerial-1000.avif 1000w, assets/img/concept-aerial-1672.avif 1672w" sizes="(min-width: 900px) 30vw, 100vw">
+          <source type="image/webp" srcset="assets/img/concept-aerial-640.webp 640w, assets/img/concept-aerial-1000.webp 1000w, assets/img/concept-aerial-1672.webp 1672w" sizes="(min-width: 900px) 30vw, 100vw">
+          <img src="assets/img/concept-aerial-1000.jpg" width="1672" height="941" alt="Architectural concept: the tower seen from above within its block at sunset" loading="lazy" decoding="async">
+        </picture>
+        <span class="option__tag"><i></i> Architectural concept</span>
+        <h3>Mixed use on one block</h3>
+      </div>
+      <div class="option__body">
+        <p>Retail and services on a glazed ground floor, workspace in the middle, hotel rooms or serviced apartments above, on a plot that already has every utility connected.</p>
+        <dl class="option__stats"><div><dt>Retail floors</dt><dd>1</dd></div><div><dt>Office floors</dt><dd>5</dd></div><div><dt>Hotel floors</dt><dd>6</dd></div></dl>
+        <div class="option__alloc"><span>Floor allocation</span><span>1 retail, 5 office, 6 hotel</span></div>
+        <div class="stack" data-stack="retail:1,office:5,hotel:6" aria-label="Floor use: 1 retail, 5 office, 6 hotel"></div>
+        <dl class="option__facts"><div><dt>Keeps</dt><dd>The frame, the plot, the trees</dd></div><div><dt>Needs</dt><dd>Planning and technical review</dd></div></dl>
+        <a class="option__link" href="#transaction">See the sale terms</a>
+      </div>
+    </article>
+  </div>
+  <p class="wrap stack-legend" aria-hidden="true"><span><i class="u-hotel"></i> Hotel</span><span><i class="u-office"></i> Offices, education</span><span><i class="u-retail"></i> Retail, services</span><span class="stack-legend__note">Floor allocation is illustrative, not a design.</span></p>
+</section>
+
+<section class="section location" id="location" aria-labelledby="location-title">
+  <div class="wrap">
+    <h2 id="location-title">Inside the centre, not on its edge</h2>
+    <p class="lead">Four minutes on foot to Bulevardul Ștefan cel Mare, the city's main street. The National Bank, Parliament, the Presidency and Government House are all within a fifteen-minute walk.</p>
+  </div>
+  <div class="lmap wrap" id="lmap">
+    <div id="locmap" role="region" aria-label="3D map of the Anton Pann block with Hotel Zarea and nearby landmarks"></div>
+    <button class="lmap__3d" type="button" data-3d aria-pressed="true">3D</button>
+    <div class="lmap__hint"><span><i style="background:#C8292F"></i> <b>Hotel Zarea</b></span><span class="lmap__hint-src">loading landmarks from OpenStreetMap…</span></div>
+    <noscript><p class="lmap__noscript">Map requires JavaScript. The hotel is at Strada Anton Pann 4, Chișinău (47.0312, 28.8362).</p></noscript>
+  </div>
+  <ul class="dist wrap" data-list="distances"></ul>
+  <p class="wrap fine">Straight-line distances from the coordinates. Building outlines and names from OpenStreetMap, indicative.</p>
+</section>
+
+<section class="section operating" id="operating" aria-labelledby="operating-title">
+  <div class="wrap split split--wide">
+    <div class="split__text">
+      <h2 id="operating-title">Sold as a working business</h2>
+      <p class="lead">Guests keep arriving while the sale runs. The buyer takes over a licensed operation with staff, bookings and no long-term debt.</p>
+      <details class="more">
+        <summary>Five-year figures</summary>
+        <table class="fin" data-table="performance"></table>
+        <p class="fine">Lei. Source: the official enterprise profile and app.gov.md, financial year 2025.</p>
+      </details>
+    </div>
+    <div class="kpis">
+      <figure class="kpi">
+        <figcaption>Sales revenue, 2025</figcaption>
+        <p class="kpi__num"><span data-field="revenue2025">9.75</span> <small>million MDL</small></p>
+        <div class="bars" data-bars="revenue" aria-hidden="true"></div>
+      </figure>
+      <figure class="kpi">
+        <figcaption>Overnight stays, 2025</figcaption>
+        <p class="kpi__num"><span data-field="stays2025">50,552</span></p>
+        <div class="bars" data-bars="stays" aria-hidden="true"></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section transaction" id="transaction" aria-labelledby="transaction-title">
+  <div class="wrap split split--wide">
+    <div class="split__text">
+      <h2 id="transaction-title">How the sale works</h2>
+      <p class="lead">An open auction run by the Public Property Agency under Law 121/2007. Anyone eligible can take part; the file is public.</p>
+      <ol class="steps" data-list="steps"></ol>
+      <p class="fine">Checked against app.gov.md on <span data-field="verifiedAt">10 September 2026</span>. The official notice and documents prevail over this page.</p>
+    </div>
+    <div class="terms">
+      <dl class="terms__list">
+        <div><dt>Method</dt><dd data-field="method">Open outcry auction</dd></div>
+        <div><dt>Initial price</dt><dd><b data-field="price">106,000,000</b> MDL</dd></div>
+        <div><dt>Deposit</dt><dd><b data-field="deposit">10,600,000</b> MDL <small data-field="depositNote"></small></dd></div>
+        <div><dt>Participation fee</dt><dd><b data-field="feeLegal">6,000</b> MDL for companies and foreign participants <small><b data-field="feeIndividual">1,500</b> MDL for Moldovan individuals</small></dd></div>
+        <div><dt>Applications until</dt><dd><b data-field="deadline-date">19 October 2026</b>, <span data-field="deadline-time">12:00</span></dd></div>
+        <div><dt>Auction</dt><dd><b data-field="auction-date">20 October 2026</b>, <span data-field="auction-time">10:00</span> <small data-field="auctionPlace"></small></dd></div>
+        <div><dt>Valuation</dt><dd><b data-field="valuation">102,965,000</b> MDL <small>market value at <span data-field="valuationDate">31 December 2025</span></small></dd></div>
+        <div><dt>Conditions</dt><dd><ul data-list="conditions"></ul></dd></div>
+      </dl>
+      <a class="btn btn--solid" href="https://app.gov.md/privatizare/" data-href="sourceUrl" target="_blank" rel="noopener">Official listing on app.gov.md</a>
+    </div>
+  </div>
+</section>
+
+<section class="section documents" id="documents" aria-labelledby="documents-title">
+  <div class="wrap">
+    <h2 id="documents-title">The file, as published</h2>
+    <p class="lead">Every figure on this page comes from one of these documents. Open them directly.</p>
+    <ul class="docs" data-list="documents"></ul>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="visit-title">
+  <picture class="visit__media">
+    <source type="image/avif" srcset="assets/img/tower-900.avif 900w, assets/img/tower-1400.avif 1400w, assets/img/tower-2000.avif 2000w" sizes="100vw">
+    <source type="image/webp" srcset="assets/img/tower-900.webp 900w, assets/img/tower-1400.webp 1400w, assets/img/tower-2000.webp 2000w" sizes="100vw">
+    <img src="assets/img/tower-1400.jpg" width="2000" height="1333" alt="The top of the Zarea tower against the sky" loading="lazy" decoding="async">
+  </picture>
+  <div class="visit__shade" aria-hidden="true"></div>
+  <div class="visit__content wrap">
+    <h2 id="visit-title">See it for yourself</h2>
+    <p class="lead">Visits are arranged by the Public Property Agency on working days, 08:00 to 17:00. The complete file can be consulted at the agency's office.</p>
+    <div class="contact" data-block="contact"></div>
+    <a class="btn btn--light" data-href="visitMail" href="#">Request a visit by email</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div>
+      <p class="foot__org"><strong>Public Property Agency</strong> of the Republic of Moldova<br><a href="https://app.gov.md" target="_blank" rel="noopener">app.gov.md</a></p>
+      <p class="foot__org"><strong>Invest Moldova Agency</strong><br><a href="https://invest.gov.md" target="_blank" rel="noopener">invest.gov.md</a></p>
+    </div>
+    <p class="foot__note">This page is informative. It is not an offer, an investment recommendation or legal advice, and it does not replace the official documentation or independent verification. Figures are taken from the documents listed above and from app.gov.md as of <span data-field="verifiedAt">10 September 2026</span>. Map data © OpenStreetMap contributors, tiles by OpenFreeMap.</p>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.6.0/maplibre-gl.min.js" integrity="sha384-/fkW0eF+JadmqTh/3DP/LoBDPsacir3SNbnZ8aD7sozuTkUVhgCNHPSBfJura3aL" crossorigin="anonymous"></script>
-<script src="js/app.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.6.0/maplibre-gl.min.js" integrity="sha384-/fkW0eF+JadmqTh/3DP/LoBDPsacir3SNbnZ8aD7sozuTkUVhgCNHPSBfJura3aL" crossorigin="anonymous" defer></script>
+<script src="js/map.js" defer></script>
+<script src="js/site.js" defer></script>
 </body>
 </html>
