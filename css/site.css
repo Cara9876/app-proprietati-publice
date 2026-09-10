@@ -179,14 +179,13 @@ section[id] { scroll-margin-top: 72px; }
 .today figcaption .eyebrow { display: block; margin-bottom: 4px; color: var(--gold); }
 .today__note { margin-top: 28px; }
 
-/* attached conditions: one centred statement, no rules */
-.attached { max-width: 64ch; margin: clamp(72px, 9vw, 128px) auto 0; text-align: center; }
+/* attached conditions: centred title, the two conditions side by side */
+.attached { margin: clamp(72px, 9vw, 128px) auto 0; text-align: center; }
 .attached h3 { font-size: clamp(28px, 3vw, 40px); }
 .attached__lead { margin: 14px auto 0; color: var(--ink-3); font-size: 15px; max-width: 48ch; }
-.attached__items { margin-top: 36px; }
-.attached__items p { font-size: 16.5px; line-height: 1.6; color: var(--ink); }
-.attached__items p + p { margin-top: 28px; padding-top: 28px; position: relative; }
-.attached__items p + p::before { content: ""; position: absolute; top: 0; left: 50%; width: 28px; height: 1px; margin-left: -14px; background: var(--gold); }
+.attached__items { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 clamp(40px, 6vw, 96px); max-width: 1040px; margin: 40px auto 0; text-align: left; }
+.attached__items p { position: relative; padding-top: 22px; font-size: 16px; line-height: 1.6; color: var(--ink); }
+.attached__items p::before { content: ""; position: absolute; top: 0; left: 0; width: 28px; height: 1px; background: var(--gold); }
 .iban { font-family: var(--font) !important; font-size: 14px !important; font-weight: 500 !important; letter-spacing: 0.08em; }
 .terms dd a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--gold-soft); }
 
@@ -348,7 +347,8 @@ section[id] { scroll-margin-top: 72px; }
   .nav-toggle { display: block; }
 }
 @media (max-width: 900px) {
-  .split, .split--wide, .directions, .kpi, .foot__grid, .attached__grid { grid-template-columns: minmax(0, 1fr); }
+  .split, .split--wide, .directions, .kpi, .foot__grid, .attached__items { grid-template-columns: minmax(0, 1fr); }
+  .attached__items p + p { margin-top: 28px; }
   .today__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: none; }
   .today__item--room { grid-column: 1 / -1; grid-row: auto; }
   .today__item--room picture { height: auto; aspect-ratio: 4 / 3; }
