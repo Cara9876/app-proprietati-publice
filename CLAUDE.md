@@ -30,6 +30,8 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
    `#B9A176` for hairlines, the monogram and small marks only (never gold text or gold buttons); **Bodoni Moda**
    (Google Fonts, latin-ext) for the hero title in tracked capitals, section titles, big numbers and document
    titles; **Onest** for body and for the tracked 11 px small capitals used on nav, buttons, labels, eyebrows.
+   Bodoni Moda is set at **weight 500 with the optical-size axis pinned to 22** (`--serif-opsz`, `font-optical-sizing:
+   none`): at the display optical size its hairlines vanish and Leo found it unreadable. Keep that on every serif use.
    Rectangular buttons, no pills, no rounded corners, no shadows except under the slider frame. Section eyebrows
    with champagne hairlines, centred on single-column sections. Red and navy are gone. No countdown anywhere.
    Page rhythm: ivory, dark charcoal break (compare), ivory, ivory + map, deeper ivory (operations), warm charcoal
