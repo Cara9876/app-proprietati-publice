@@ -140,7 +140,7 @@ section[id] { scroll-margin-top: 72px; }
 .strip__grid > div:last-child { border-right: 0; }
 .strip dt { font-size: 11px; letter-spacing: var(--track); text-transform: uppercase; color: var(--ink-3); font-weight: 500; }
 .strip dd { margin-top: 8px; font-family: var(--serif); font-weight: 600; font-optical-sizing: none; font-variation-settings: var(--serif-num); font-size: clamp(22px, 2vw, 28px); letter-spacing: 0.01em; line-height: 1.1; }
-.strip dd b { font-weight: 400; }
+.strip dd b { font-weight: 600; }
 .strip dd span { font-family: var(--font); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); margin-left: 4px; }
 
 /* split layouts */
