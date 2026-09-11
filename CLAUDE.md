@@ -71,15 +71,23 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
 
 ## Feedback round from Regina Mogorean (10 Sep 2026), all applied
 - Numerals were too thin → serif numerals at weight 600, optical size 16 (`--serif-num`); titles 500 / opsz 20.
-- The shelter (IGSU) and Premier Energy conditions are stated **before the price**, as one centred statement
-  ("Two things stay as they are") at the end of the operations section: serif line, two paragraphs, one small gold
-  mark between them. Leo rejected a numbered split layout there as "too many lines"; keep it rule-free.
+- The shelter (IGSU) and Premier Energy conditions are stated **before the price** in their own short section
+  `.section.attached` ("Two things stay as they are") between the operations and the sale: centred serif title on
+  one line, quiet sub-line, the two conditions in two left-aligned columns each opening with a short gold mark.
+  Leo rejected a numbered split layout there as "too many lines"; keep it rule-free.
 - Her English copy replaced ours in: property, compare, directions lead, location, operations, documents, hero lead
   ("right in the heart of Chișinău").
 - A room must be visible → the old prospect's room photograph (`src-room.webp`, 576×768) sits under the figures
   with the entrance photo, labelled "Photograph, 2026". A room *concept* render would allow a third slider pair.
 - How to apply was unclear → step 2 and three terms rows now say: on paper at the agency (no online channel),
   Annex 1 form, attachments, and the two treasury IBANs from the Gazette notice p. 67 (in `data/site.json`).
+
+## Feedback round from Leo (11 Sep 2026), applied
+- "Don't shock right away": the concept comes before the reality. The `.wrap today` block ("What a buyer sees
+  today") was pulled out of the `.section.property` and made its own `.section.today-section` **after** the dark
+  `.compare-section` ("Ready for what comes next"). Order is now property intro → compare (vision) → today (photos)
+  → directions. `today-section` is in the `padding-top` exception list; it sits on deeper ivory (`--civic`); the
+  `.today` block's old within-section divider (margin-top / padding-top / gold `border-top`) was dropped.
 
 ## Known gotchas
 - `setField` sets `textContent` on the element carrying `data-field`; never put it on a `dd` that also holds a
