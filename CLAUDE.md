@@ -71,14 +71,19 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
 
 ## Feedback round from Regina Mogorean (10 Sep 2026), all applied
 - Numerals were too thin → serif numerals at weight 600, optical size 16 (`--serif-num`); titles 500 / opsz 20.
+  (The top strip's price/date numbers stayed at 400 because `.strip dd b` reset them; fixed to 600 on 11 Sep 2026.)
 - The shelter (IGSU) and Premier Energy conditions are stated **before the price** in their own short section
   `.section.attached` ("Two things stay as they are") between the operations and the sale: centred serif title on
   one line, quiet sub-line, the two conditions in two left-aligned columns each opening with a short gold mark.
   Leo rejected a numbered split layout there as "too many lines"; keep it rule-free.
 - Her English copy replaced ours in: property, compare, directions lead, location, operations, documents, hero lead
-  ("right in the heart of Chișinău").
-- A room must be visible → the old prospect's room photograph (`src-room.webp`, 576×768) sits under the figures
-  with the entrance photo, labelled "Photograph, 2026". A room *concept* render would allow a third slider pair.
+  ("right in the heart of Chișinău"). **Her em dashes were deliberately rendered as commas** — Leo avoids em dashes
+  (they read as an AI tell); keep commas here, do not "restore" the dashes from her doc. The property lead repeats
+  "It doesn't look new. It doesn't need to." (in the paragraph as well as the H2) since 11 Sep 2026, per her doc.
+- A room must be visible → the old prospect's room photograph (`src-room.webp`, 576×768) shows a standard double in
+  the "What a buyer sees today" grid (`.today__item--room`). **Still open:** Regina also wants "the rooms" as a third
+  category *inside the compare slider* (photo vs concept); blocked on a room **concept render** — we only have the
+  four exterior/entrance renders. Add a third pair to `#compare` once Leo delivers one.
 - How to apply was unclear → step 2 and three terms rows now say: on paper at the agency (no online channel),
   Annex 1 form, attachments, and the two treasury IBANs from the Gazette notice p. 67 (in `data/site.json`).
 
@@ -88,6 +93,9 @@ node tools/shoot.js http://localhost:8766/ shots/at-1400.png 1440 900 6000 14000
   `.compare-section` ("Ready for what comes next"). Order is now property intro → compare (vision) → today (photos)
   → directions. `today-section` is in the `padding-top` exception list; it sits on deeper ivory (`--civic`); the
   `.today` block's old within-section divider (margin-top / padding-top / gold `border-top`) was dropped.
+- Re-checked Regina's 10 Sep list against her feedback doc (`~/Downloads/Zarea feedback .docx`): points 1, 2, 5 and
+  the hero reformulation were already in; the strip numerals and the repeated property-lead tagline were the two gaps,
+  now closed. Only the rooms-in-slider item (above) remains, waiting on a render.
 
 ## Known gotchas
 - `setField` sets `textContent` on the element carrying `data-field`; never put it on a `dd` that also holds a
